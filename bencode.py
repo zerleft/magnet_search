@@ -44,9 +44,10 @@ def bencode(dic):
                        str(len(dic['t'])) + \
                        ':' + dic['t'] + \
                        '1:y1:qe'
-
         except:
             return ''
+    else:
+        return ''
 
 '''
 解码
