@@ -145,7 +145,7 @@ def req_get_peers_decode(string):
     except ValueError, KeyError:
         return {}
 
-def req_announce_peer(string):
+def req_announce_peer_decode(string):
     #请求announce_peer解码
     res = {}
     try:
@@ -161,9 +161,36 @@ def req_announce_peer(string):
         return res
     except ValueError, KeyError:
         return {}
+
+def res_ping_decode(string):
+    #回应ping解码
+    res = {}
+    try:
+        temp = string.split(':')
+        res['t'] = find_value(temp, 't2', -1)
+        res['y'] = find_value(temp, 'y1', -1)
+        res['r'] = {'id':find_value(temp, 'id20', -2)}
+
+        return res
+    except ValueError, KeyError:
+        return {}
+
+def res_find_node_decode(string):
+    #回应find_node解码
+    res = {}
+    try:
+        temp = string.split(':')
+        res['t'] = find_value(temp, 't2', -1)
+        res['y'] = find_value(temp, 'y1', -1)
+        res['r'] = {'id':find_value(temp, 'id20', -1), \
+                    'nodes':find_value(temp, 'nodes9', -2)}
+
+        return res
+    except ValueError, KeyError:
+        return {}
+
 '''
-爬虫永远不会发送get_peers
-所以不会收到get_peers的回应
-不必为get_peers的回应解码
+爬虫永远不会发送get_peers和announce_peer
+所以不会收到get_peers和announce_peer的回应
+不必为get_peers和announce_peer的回应解码
 '''
-def 
