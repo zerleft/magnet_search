@@ -16,9 +16,11 @@ my_node_id_str = '\x92\xac\xb1\x1e\x9d\xf2\xfes\x13-\xd5\x9cU\x0bZ\x13\xdf\xadZ\
 
 #transaction_id
 my_transaction_id = 'zerleft'
+#my_transaction_id_str = 
 
 #路由表长度
 length = 160
+max_ = 2 ** 160
 
 #桶大小
 K = 8
