@@ -5,15 +5,18 @@
 #  developing...
 
 import sys,os
-import socket
-import bcoder
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-'''
-各种rpc命令的实现
-'''
-def send_ping_req(sock, ):
-    #发送ping请求
-    se
+#路由表长度
+length = 160
+
+#桶大小
+K = 8
+
+#node_id长度
+id_len = 20
+
+#info_hash长度
+info_hash_len = 20
