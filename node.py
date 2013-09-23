@@ -10,15 +10,16 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 class node:
-    '''
-    在dht网络里爬来爬去的节点
-    '''
-    def __init__(self, node_id):
+    def __init__(self, node_id, addr):
+        #节点id
         self.node_id = node_id
-        #self.nearest8_nodes = []
-        self.find_node_send = 0
-        self.get_peer_recv = 0
-        self.announce_peer_recv = 0
+        #(ip, port)
+        self.address = addr
+        #上一次与我们通信的时间
+        self.last_talk = 0
+        #self.find_node_send = 0
+        #self.get_peer_recv = 0
+        #self.announce_peer_recv = 0
 
     def distance(self, other_id):
         '''
